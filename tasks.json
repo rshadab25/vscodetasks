@@ -1,0 +1,98 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Shadab:M2 Cache Clear",
+            "type": "shell",
+            "command": "warden env exec -T php-fpm bin/magento c:c",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Shadab:M2 Cache Flush",
+            "type": "shell",
+            "command": "warden env exec -T php-fpm bin/magento c:f",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Shadab:M2 Compile",
+            "type": "shell",
+            "command": "warden env exec -T php-fpm bin/magento s:d:c",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Shadab:M2 Upgrade",
+            "type": "shell",
+            "command": "warden env exec -T php-fpm bin/magento s:up",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Shadab:M2 Composer Install",
+            "type": "shell",
+            "command": "warden env exec -T php-fpm composer install -vvv",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Shadab:M2 PHPUnit",
+            "type": "shell",
+            "command": "warden env exec -T php-fpm ./vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist ${input:param1}",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "param1",
+            "description": "Unit Test path:",
+            "default": "vendor/magento/module-checkout/Test/Unit",
+            "type": "promptString"
+        },
+    ]
+  }
+  
